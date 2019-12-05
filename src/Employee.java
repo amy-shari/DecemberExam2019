@@ -92,8 +92,6 @@ public class Employee {
         public double getGrossPay(){
             double grossPay = 0.0;
             grossPay = this.getRegularPay() + this.getOvertimePay();
-            
-            
             return grossPay;
         } // end getPay 
         
@@ -112,6 +110,7 @@ public class Employee {
             this.hours = this.hours * n;            // this returns hours to original value if they are over 40
             this.hours = this.hours % REGULARHOURS; // this finds the overtime hours
             overtimePay = this.wage * this.hours * OVERTIMEPAYINCREASE; // calculates the overtime pay
+            this.hours = n;
         return overtimePay;    
         } // end getPay     
 
@@ -131,7 +130,6 @@ public class Employee {
             else{
                 regularPay = this.wage * REGULARHOURS;
             }
-            regularPay = this.wage * this.hours;
         return regularPay;    
         } // end getPay    
         
