@@ -43,14 +43,10 @@ public class EmployeeClient {  // begin class
         
         int arrayLength = 0;          // the length of the employee array
     	
+        int additionalEmployeeHours = 0; // the hours worked by the additional employee
+        double additionalEmployeeWage = 0;  // the wage worked by the additional employee        
     // ***** create objects *******
     
-        Employee lauren = new Employee(wage, hours);
-        Employee hannah = new Employee(wage, hours);
-        Employee amy = new Employee(wage, hours);
-        Employee gitHub = new Employee(wage, hours);
-        
-        Employee additionalEmployee = new Employee();
         // additionalEmployee will be created using default constrocotr and using setter methods
         
         //DecimalFormat df1 = new DecimalFormat("##.###");
@@ -94,11 +90,18 @@ public class EmployeeClient {  // begin class
             hours = Integer.parseInt(tokens[0]);        // parses hours
             wage = Double.parseDouble(tokens[1]);       // parses wages
             employee[arrayLength] = new Employee(wage, hours); //creates an employee on the array
-            
             arrayLength++;
             strin = fin.readLine();
         } // end of while loop
 
+        additionalEmployeeHours = 50;
+        additionalEmployeeWage = 12.5;
+        
+        Employee additionalEmployee = new Employee();
+        
+        additionalEmployee.setHours(additionalEmployeeHours);  // sets the wage of the additional employee
+        additionalEmployee.setWage(additionalEmployeeWage);    // sets the hours of the additional employee
+        
     // ************************ print output ****************************
 
         /*System.out.println(circle1.getRadius());
@@ -115,7 +118,9 @@ public class EmployeeClient {  // begin class
         
         for(int i = 0; i < arrayLength; i++){
             System.out.println(employee[i].toString());
-        }
+        } // end of for loop for the employees using the intialized constructor
+        
+        System.out.println(additionalEmployee.toString());
 
     // ******** closing message *********
         
