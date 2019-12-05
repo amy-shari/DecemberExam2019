@@ -38,7 +38,10 @@ public class EmployeeClient {  // begin class
         
         double wage = 0.00;
         int hours = 0;
+        
         Employee employee[] = new Employee[MAXSIZE];
+        
+        int arrayLength = 0;          // the length of the employee array
     	
     // ***** create objects *******
     
@@ -83,7 +86,18 @@ public class EmployeeClient {  // begin class
 
     // ************************ processing ***************************
         
-
+        strin = fin.readLine();
+        
+        while(strin != null){
+            //begin while data is being read
+            tokens = strin.split(delim);                // splits strin
+            hours = Integer.parseInt(tokens[0]);        // parses hours
+            wage = Double.parseDouble(tokens[1]);       // parses wages
+            employee[arrayLength] = new Employee(wage, hours); //creates an employee on the array
+            
+            arrayLength++;
+            strin = fin.readLine();
+        } // end of while loop
 
     // ************************ print output ****************************
 
@@ -99,21 +113,10 @@ public class EmployeeClient {  // begin class
         System.out.println("Circle 1 Area = " + circle1.getArea());
         System.out.println("Circle 2 Area = " + circle2.getArea() + nl + nl); */
         
-        strin = fin.readLine();
-        int i = 0;          // the specific employee being accessed
-        
-        while(strin != null){
-            //begin while data is being read
-            tokens = strin.split(delim);                // splits strin
-            hours = Integer.parseInt(tokens[0]);
-            wage = Double.parseDouble(tokens[1]);
-            employee[i] = new Employee(wage, hours); 
+        for(int i = 0; i < arrayLength; i++){
             System.out.println(employee[i].toString());
-            
-            i++;
-            strin = fin.readLine();
-        } // end of while loop
-    
+        }
+
     // ******** closing message *********
         
         //System.out.println(programInfo.getClosingMessage());
