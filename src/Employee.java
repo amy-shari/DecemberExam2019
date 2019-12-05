@@ -135,9 +135,11 @@ public class Employee {
             String s = "";
          
           s = String.format("%-10s %10.5f %s", "ID:", this.id, "\n");
-          s += String.format("%-10s %10.5f %s", "Radius:", this.radius, "\n");
-          s += String.format("%-10s %10.5f %s", "Area:", this.getArea(), "\n");
-          s += String.format("%-10s %10.5f %s", "Diameter:", this.getDiameter(), "\n");
+          s += String.format("%-10s %10.5f %s", "Hours:", this.hours, "\n");
+          s += String.format("%-10s %10.5f %s", "Wage:", this.wage, "\n");
+          s += String.format("%-10s %10.5f %s", "Regular Pay:", this.getRegularPay(), "\n");
+          s += String.format("%-10s %10.5f %s", "Overtime Pay:", this.getOvertimePay(), "\n");
+          s += String.format("%-10s %10.5f %s", "Gross Pay:", this.getGrossPay(), "\n");
           
             return s;
         } // end toString overloaded
