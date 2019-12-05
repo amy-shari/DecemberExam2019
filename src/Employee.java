@@ -20,8 +20,9 @@ public class Employee {
         private int id = 0;
         private double wage = 0.00;
         private int hours = 0;
-        private double getOvertimePay;
-        final int REGULARHOURS = 40;
+        
+        private final int REGULARHOURS = 40;
+        private final double OVERTIMEPAYINCREASE = 1.5;
         
     //*** Constructors ***
     
@@ -37,7 +38,7 @@ public class Employee {
     * ****************************************/
         
     /*****************************************
-    * Description:  default constructor, create a circle object with radius = 0
+    * Description:  default constructor, creates an employee with a unique id 
     * 
     * ****************************************/
         public Employee(){
@@ -51,8 +52,8 @@ public class Employee {
         } // end default constructor
         
     /*****************************************
-    * Description:  initialized constructor, create a circle with a radius of 
-    *               length r
+    * Description:  initialized constructor, create an employee with a specific 
+    * wage and hours
     * 
     * Interface:
     * 
@@ -61,8 +62,8 @@ public class Employee {
     * ****************************************/
         public Employee(double wage, int hours){
             this.id = nextID++;
-            this.wage = 0;
-            this.hours = 0;
+            this.wage = wage;
+            this.hours = hours;
         } // end initialized constructor
     
     
@@ -86,18 +87,12 @@ public class Employee {
     *        
     * @return   pay : double 
     * ****************************************/
-        public double getPay(){
-            double pay = 0.0;
-            if(this.hours >= REGULARHOURS){
-                pay = regularPay;
-            }
-           else{
-            pay = overtimePay;
-                
-            }
+        public double getGrossPay(){
+            double grossPay = 0.0;
+            grossPay = this.getRegularPay() + this.getOvertimePay();
             
             
-            return pay;
+            return grossPay;
         } // end getPay 
         
     /*****************************************
@@ -111,12 +106,12 @@ public class Employee {
         public double getOvertimePay(){
             double overtimePay = 0;
             this.hours = this.hours - REGULARHOURS;
-            overtimePay = this.wage * this.hours * 1.5;
+            overtimePay = this.wage * this.hours * OVERTIMEPAYINCREASE;
         return overtimePay;    
         } // end getPay     
 
     /*****************************************
-    * Description:  get the overtime pay 
+    * Description:  get the regular pay 
     * 
     * Interface:
     *        
@@ -124,33 +119,10 @@ public class Employee {
     * @return  overtimePay : double
     ****************************************/
         public double getRegularPay(){
-            double overtimePay = 0;
-            this.hours = this.hours - 40;
-            overtimePay = this.wage * this.hours * 1.5;
-        return overtimePay;    
+            double regularPay = 0;
+            regularPay = this.wage * this.hours;
+        return regularPay;    
         } // end getPay    
-        
-    /*****************************************
-    * Description:  get the area of the circle object
-    * 
-    * Interface:
-    * 
-    * @return       area: double, the area of the circle object
-    * ****************************************/ 
-        public double getArea(){
-            return Math.pow(this.radius, 2) * this.PI;
-        } // end getarea
-        
-    /*****************************************
-    * Description:  get the diameter of the circle object
-    * 
-    * Interface:
-    * 
-    * @return       d; double, diameter of the circle object
-    * ****************************************/
-        public double getDiameter(){
-            return this.radius * 2;
-        } // end getDiameter
         
     /*****************************************
     * Description:  print circle details
@@ -173,14 +145,25 @@ public class Employee {
     //*** Setters ***
         
     /*****************************************
-    * Description:  changes the value of radius
+    * Description:  set the value of hours
     * 
     * Interface:
     * 
-    * @param        r: double, new radius of circle object
+    * @param        hours: int, n number of hours worked by employee
     * ****************************************/
-        public void setRadius(double r){
-            this.radius = r;
+        public void setHours(int hours){
+            this.hours = hours;
+        } // end setRadius
+        
+    /*****************************************
+    * Description:  set the value of wage
+    * 
+    * Interface:
+    * 
+    * @param        wage: double, n wage of the employee
+    * ****************************************/
+        public void setWage(double wage){
+            this.wage = wage;
         } // end setRadius
     
 } // end of public class
