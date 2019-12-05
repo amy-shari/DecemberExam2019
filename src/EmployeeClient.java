@@ -4,8 +4,9 @@
  *
  * Assignment:  December Exam
  *
- * Description: exploring some OOP basics. Create a Circle class to calculate 
- *              the dimensions of a Circle object
+ * Description: Employee client uses employee class to 
+ * determine the wage, hours, ID, regular pay,
+ * overtime pay, and gross pay of employee objects
  ***********************************************************************/
  
  // import java libraries here as needed
@@ -26,7 +27,7 @@ public class EmployeeClient {  // begin class
 
         String strin;		// string data input from keyboard
         String strout;		// processed info string to be output
-        String bannerOut;		// string to print banner to message dialogs
+        String bannerOut = null;		// string to print banner to message dialogs
 
         String prompt;		// prompt for use in input dialogs
 
@@ -35,6 +36,8 @@ public class EmployeeClient {  // begin class
         
         String nl = System.lineSeparator();
         // new line character for file writing
+        
+        String assignmentName = "December Exam";
         
         double wage = 0.00;
         int hours = 0;
@@ -45,28 +48,21 @@ public class EmployeeClient {  // begin class
     	
         int additionalEmployeeHours = 0; // the hours worked by the additional employee
         double additionalEmployeeWage = 0;  // the wage worked by the additional employee        
+    
     // ***** create objects *******
     
-        // additionalEmployee will be created using default constrocotr and using setter methods
-        
-        //DecimalFormat df1 = new DecimalFormat("##.###");
-    
-    // the ProgramInfo class has both a default and initialized constructor
-    // so you can choose which model you want to employ
-    
-        //ProgramInfo programInfo = new ProgramInfo();
-        //ProgramInfo programInfo = new ProgramInfo("assignment name");
+        ProgramInfo programInfo;
+        programInfo = new ProgramInfo(assignmentName);
         
         BufferedReader fin = new BufferedReader(new FileReader("employeeDecemberExamData.txt"));
-        //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outFile.txt")));
+        PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outFile.txt")));
     	
     // ********** Print output Banner **********
 
-        //System.out.println(programInfo.getBanner("A1Q2"));
-        //fout.println(programInfo.getBanner("A1Q2"));
-
-        //System.out.println(programInfo.getBanner());
-        //fout.println(programInfo.getBanner());
+        programInfo.createBanner();
+        
+        programInfo.printBanner();
+        programInfo.printBanner(fout);
 	    	
     // ************************ get input **********************
 /* input will now come from an external file so there
@@ -103,18 +99,6 @@ public class EmployeeClient {  // begin class
         additionalEmployee.setWage(additionalEmployeeWage);    // sets the hours of the additional employee
         
     // ************************ print output ****************************
-
-        /*System.out.println(circle1.getRadius());
-        System.out.println(circle2.getRadius());
-        //System.out.println(circle2.radius);
-        
-        System.out.println("Circle 1 Area = " + circle1.getArea());
-        System.out.println("Circle 2 Area = " + circle2.getArea() + nl + nl);
-        
-        circle1.setRadius(2);
-        circle2.setRadius(5.78);
-        System.out.println("Circle 1 Area = " + circle1.getArea());
-        System.out.println("Circle 2 Area = " + circle2.getArea() + nl + nl); */
         
         for(int i = 0; i < arrayLength; i++){
             System.out.println(employee[i].toString());
@@ -124,8 +108,8 @@ public class EmployeeClient {  // begin class
 
     // ******** closing message *********
         
-        //System.out.println(programInfo.getClosingMessage());
-        //fout.println(programInfo.getClosingMessage());
+        programInfo.printClosingMessage();
+        programInfo.printClosingMessage(fout);
         
     // ***** close streams *****
         
