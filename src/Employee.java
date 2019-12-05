@@ -2,10 +2,10 @@
  * Programmer:	Amy Mann
  * Class:       CS30S
  *
- * Assignment:  Circle object example
+ * Assignment:  December Exam 2019
  *
- * Description: Circle class, will calculate the area, diameter, and circumference
- *              of a circle object
+ * Description: Employee class, will determine the wage, hours, ID, regular pay,
+ *              overtime pay, and gross pay of an employee object
  ***********************************************************************/
 
 // import libraries as needed here
@@ -17,12 +17,14 @@ public class Employee {
     
     //*** Instance Variables ***
     
-        private int id = 0;
-        private double wage = 0.00;
-        private int hours = 0;
+        private int id = 0;                 // the local id variable
+        private double wage = 0.00;         // the wage of the employee
+        private int hours = 0;              // the hours worked by employee
         
-        private final int REGULARHOURS = 40;
-        private final double OVERTIMEPAYINCREASE = 1.5;
+        private final int REGULARHOURS = 40; // the amount of reg hours before overtime kicks in
+        private final int OVERTIMEHOURS= 41; // the minimum amount of hours for overtime pay
+        
+        private final double OVERTIMEPAYINCREASE = 1.5; // the amount employees are paid for overtime work
         
     //*** Constructors ***
     
@@ -104,12 +106,12 @@ public class Employee {
     * @return  overtimePay : double
     ****************************************/
         public double getOvertimePay(){
-            double overtimePay = 0;
-            int n = this.hours;
-            this.hours = this.hours / REGULARHOURS;
-            this.hours = this.hours * n;
-            this.hours = this.hours % REGULARHOURS;
-            overtimePay = this.wage * this.hours * OVERTIMEPAYINCREASE;
+            double overtimePay = 0;             // the double for the overtime pay
+            int n = this.hours;                  // creates int n which is stores the original value of overtime pay
+            this.hours = this.hours / OVERTIMEHOURS; // if hours is over 40, it makes this.hours 1, if not this.hours is 0
+            this.hours = this.hours * n;            // this returns hours to original value if they are over 40
+            this.hours = this.hours % REGULARHOURS; // this finds the overtime hours
+            overtimePay = this.wage * this.hours * OVERTIMEPAYINCREASE; // calculates the overtime pay
         return overtimePay;    
         } // end getPay     
 
