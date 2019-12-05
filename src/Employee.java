@@ -105,7 +105,10 @@ public class Employee {
     ****************************************/
         public double getOvertimePay(){
             double overtimePay = 0;
-            this.hours = this.hours - REGULARHOURS;
+            int n = this.hours;
+            this.hours = this.hours / REGULARHOURS;
+            this.hours = this.hours * n;
+            this.hours = this.hours % REGULARHOURS;
             overtimePay = this.wage * this.hours * OVERTIMEPAYINCREASE;
         return overtimePay;    
         } // end getPay     
@@ -140,8 +143,8 @@ public class Employee {
         public String toString(){
             String s = "";
          
-          s = String.format("%-10s %10.5f %s", "ID:", this.id, "\n");
-          s += String.format("%-10s %10.5f %s", "Hours:", this.hours, "\n");
+          s = String.format("%-10s %10s %s", "ID:", this.id, "\n");
+          s += String.format("%-10s %10d %s", "Hours:", this.hours, "\n");
           s += String.format("%-10s %10.5f %s", "Wage:", this.wage, "\n");
           s += String.format("%-10s %10.5f %s", "Regular Pay:", this.getRegularPay(), "\n");
           s += String.format("%-10s %10.5f %s", "Overtime Pay:", this.getOvertimePay(), "\n");
