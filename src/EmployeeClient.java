@@ -39,10 +39,10 @@ public class EmployeeClient {  // begin class
     	
     // ***** create objects *******
     
-        Employee lauren = new Employee();
-        Employee hannah = new Employee();
-        Employee amy = new Employee();
-        Employee gitHub = new Employee();
+        Employee lauren = new Employee(wage, hours);
+        Employee hannah = new Employee(wage, hours);
+        Employee amy = new Employee(wage, hours);
+        Employee gitHub = new Employee(wage, hours);
         
         Employee additionalEmployee = new Employee();
         // additionalEmployee will be created using default constrocotr and using setter methods
