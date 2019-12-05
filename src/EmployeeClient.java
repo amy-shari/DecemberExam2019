@@ -27,7 +27,7 @@ public class EmployeeClient {  // begin class
 
         String strin;		// string data input from keyboard
         String strout;		// processed info string to be output
-        String bannerOut = null;		// string to print banner to message dialogs
+        String bannerOut;		// string to print banner to message dialogs
 
         String prompt;		// prompt for use in input dialogs
 
@@ -65,16 +65,6 @@ public class EmployeeClient {  // begin class
         programInfo.printBanner(fout);
 	    	
     // ************************ get input **********************
-/* input will now come from an external file so there
-        will not normally be a need for a prompt
-    
-        prompt = "Enter your prompt text here. \n";	
-        prompt += "you may need to add additional lines\n";
-        prompt += "or delete some of these prompt lines.\n\n";
-
-        strin = JOptionPane.showInputDialog(bannerOut + prompt);	 
-*/
-        // read a line of data from the external text file
 
     // ************************ processing ***************************
         
@@ -90,10 +80,10 @@ public class EmployeeClient {  // begin class
             strin = fin.readLine();
         } // end of while loop
 
-        additionalEmployeeHours = 50;
-        additionalEmployeeWage = 12.5;
+        additionalEmployeeHours = 50;       // determines the additional employee's hours 
+        additionalEmployeeWage = 12.5;      // determines the additional employee's wage
         
-        Employee additionalEmployee = new Employee();
+        Employee additionalEmployee = new Employee();   // the creates the additional employee using default constructor
         
         additionalEmployee.setHours(additionalEmployeeHours);  // sets the wage of the additional employee
         additionalEmployee.setWage(additionalEmployeeWage);    // sets the hours of the additional employee
@@ -104,7 +94,7 @@ public class EmployeeClient {  // begin class
             System.out.println(employee[i].toString());
         } // end of for loop for the employees using the intialized constructor
         
-        System.out.println(additionalEmployee.toString());
+        System.out.println(additionalEmployee.toString());  // prints additional employee records
 
     // ******** closing message *********
         
@@ -113,8 +103,8 @@ public class EmployeeClient {  // begin class
         
     // ***** close streams *****
         
-        //fin.close();                // close input buffer stream
-        //fout.close();               // close output stream
+        fin.close();                // close input buffer stream
+        fout.close();               // close output stream
         
     }  // end main
 }  // end class
