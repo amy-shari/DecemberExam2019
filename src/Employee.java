@@ -119,7 +119,13 @@ public class Employee {
     * @return  overtimePay : double
     ****************************************/
         public double getRegularPay(){
-            double regularPay = 0;
+            double regularPay = 0.00;
+            if(hours <= REGULARHOURS){
+                regularPay = this.wage * this.hours;
+            }
+            else{
+                regularPay = this.wage * REGULARHOURS;
+            }
             regularPay = this.wage * this.hours;
         return regularPay;    
         } // end getPay    
