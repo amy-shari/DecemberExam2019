@@ -20,6 +20,8 @@ public class EmployeeClient {  // begin class
     
     // ********* declaration of constants **********
     
+        final int MAXSIZE = 100;
+    
     // ********** declaration of variables **********
 
         String strin;		// string data input from keyboard
@@ -28,14 +30,15 @@ public class EmployeeClient {  // begin class
 
         String prompt;		// prompt for use in input dialogs
 
-        String delim = "[ :]+";	// delimiter string for splitting input string
-        String[] tokens;                        // string array for gathering input
+        String delim = "[ ]+";	// delimiter string for splitting input string
+        String[] tokens = null;                        // string array for gathering input
         
         String nl = System.lineSeparator();
         // new line character for file writing
         
-        double wage = 0.0;
+        double wage = 0.00;
         int hours = 0;
+        Employee employee[] = new Employee[MAXSIZE];
     	
     // ***** create objects *******
     
@@ -55,7 +58,7 @@ public class EmployeeClient {  // begin class
         //ProgramInfo programInfo = new ProgramInfo();
         //ProgramInfo programInfo = new ProgramInfo("assignment name");
         
-        //BufferedReader fin = new BufferedReader(new FileReader("demo1Data.txt"));
+        BufferedReader fin = new BufferedReader(new FileReader("employeeDecemberExamData.txt"));
         //PrintWriter fout = new PrintWriter(new BufferedWriter(new FileWriter("outFile.txt")));
     	
     // ********** Print output Banner **********
@@ -94,14 +97,22 @@ public class EmployeeClient {  // begin class
         circle1.setRadius(2);
         circle2.setRadius(5.78);
         System.out.println("Circle 1 Area = " + circle1.getArea());
-        System.out.println("Circle 2 Area = " + circle2.getArea() + nl + nl); 
+        System.out.println("Circle 2 Area = " + circle2.getArea() + nl + nl); */
         
-        System.out.println(circle1.toString());
-        //circle3 = circle1;
-        System.out.println(circle3.toString());
-        System.out.println(circle2.toString());*/
+        strin = fin.readLine();
+        int i = 0;          // the specific employee being accessed
         
-        
+        while(strin != null){
+            //begin while data is being read
+            tokens = strin.split(delim);                // splits strin
+            hours = Integer.parseInt(tokens[0]);
+            wage = Double.parseDouble(tokens[1]);
+            employee[i] = new Employee(wage, hours); 
+            System.out.println(employee[i].toString());
+            
+            i++;
+            strin = fin.readLine();
+        } // end of while loop
     
     // ******** closing message *********
         
