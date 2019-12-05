@@ -2,7 +2,7 @@
  * Programmer:	Amy Mann
  * Class:       CS30S
  *
- * Assignment:  Circle OOP Example
+ * Assignment:  December Exam
  *
  * Description: exploring some OOP basics. Create a Circle class to calculate 
  *              the dimensions of a Circle object
@@ -39,7 +39,13 @@ public class EmployeeClient {  // begin class
     	
     // ***** create objects *******
     
-        Employee circle1 = new Employee();
+        Employee lauren = new Employee();
+        Employee hannah = new Employee();
+        Employee amy = new Employee();
+        Employee gitHub = new Employee();
+        
+        Employee additionalEmployee = new Employee();
+        // additionalEmployee will be created using default constrocotr and using setter methods
         
         //DecimalFormat df1 = new DecimalFormat("##.###");
     
@@ -78,7 +84,7 @@ public class EmployeeClient {  // begin class
 
     // ************************ print output ****************************
 
-        System.out.println(circle1.getRadius());
+        /*System.out.println(circle1.getRadius());
         System.out.println(circle2.getRadius());
         //System.out.println(circle2.radius);
         
@@ -93,7 +99,7 @@ public class EmployeeClient {  // begin class
         System.out.println(circle1.toString());
         //circle3 = circle1;
         System.out.println(circle3.toString());
-        System.out.println(circle2.toString());
+        System.out.println(circle2.toString());*/
         
         
     
